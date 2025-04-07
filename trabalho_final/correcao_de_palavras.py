@@ -46,7 +46,8 @@ def sugerir_correcoes(palavra_digitada, dicionario, X=2, limite=10):
     for termo_original in dicionario:
         termo_normalizado = normalizar(termo_original)
         dist = distancia_levenshtein(palavra_normalizada, termo_normalizado)
-        if dist <= X:
+
+        if dist <= X and termo_normalizado.startswith('m'):
             sugestoes.append((termo_original, dist))
 
     # Ordena por distância e ordem alfabética
